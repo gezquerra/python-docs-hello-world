@@ -2,27 +2,11 @@ from flask import Flask, request, jsonify
 from urllib.parse import unquote_plus
 import json
 import re
+import requests
 
 app = Flask(__name__)
 
-# Create some test data for our catalog in the form of a list of dictionaries.
-books = [
-    {'id': 0,
-     'title': 'A Fire Upon the Deep',
-     'author': 'Vernor Vinge',
-     'first_sentence': 'The coldsleep itself was dreamless.',
-     'year_published': '1992'},
-    {'id': 1,
-     'title': 'The Ones Who Walk Away From Omelas',
-     'author': 'Ursula K. Le Guin',
-     'first_sentence': 'With a clamor of bells that set the swallows soaring, the Festival of Summer came to the city Omelas, bright-towered by the sea.',
-     'published': '1973'},
-    {'id': 2,
-     'title': 'Dhalgren',
-     'author': 'Samuel R. Delany',
-     'first_sentence': 'to wound the autumnal city.',
-     'published': '1975'}
-]
+
 
 evalart_customer_config = {
   "config": {
@@ -56,11 +40,6 @@ def parse_request(req):
 def hello():
     return "Hello, Azure!"
 
-# A route to return all of the available entries in our catalog.
-@app.route('/api/v1/resources/books/all', methods=['GET'])
-def api_all():
-    return jsonify(books)
-
 # A route to return config
 @app.route('/config', methods=['GET'])
 def api_config():
@@ -69,10 +48,19 @@ def api_config():
 # A route to return config
 @app.route('/webhook', methods=['PUT','POST'])
 def api_webhook():
-    payload = parse_request(request)
+    
+    #payload = parse_request(request)
+    payload = request.get_data()
     print (payload)
+
+    url = 'https://smart.requestcatcher.com/test'
+
+    headers = {"Content-Type": "application/json"}
+    x = requests.post(url, data = payload,headers = headers)
+
+
     return ("", 200, None)
 
 
-#app.run()
+app.run()
 
