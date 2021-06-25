@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 from urllib.parse import unquote_plus
 import json
 import re
-import requests
+
 
 app = Flask(__name__)
 
@@ -36,6 +36,8 @@ def api_config():
 # A route to return config
 @app.route('/webhook', methods=['PUT','POST'])
 def api_webhook():
+    import requests
+    
     payload = request.get_data()
     print (payload)
 
