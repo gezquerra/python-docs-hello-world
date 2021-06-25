@@ -25,16 +25,6 @@ evalart_customer_config = {
   }
 }
 
-def parse_request(req):
-    """
-    Parses application/json request body data into a Python dictionary
-    """
-    payload = req.get_data()
-    #payload = unquote_plus(payload)
-    #payload = re.sub('payload=', '', payload)
-    payload = json.loads(payload)
-
-    return payload
 
 @app.route("/")
 def hello():
@@ -48,8 +38,6 @@ def api_config():
 # A route to return config
 @app.route('/webhook', methods=['PUT','POST'])
 def api_webhook():
-    
-    #payload = parse_request(request)
     payload = request.get_data()
     print (payload)
 
@@ -57,8 +45,7 @@ def api_webhook():
 
     headers = {"Content-Type": "application/json"}
     x = requests.post(url, data = payload,headers = headers)
-
-
+    print (x)
     return ("", 200, None)
 
 
