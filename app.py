@@ -74,5 +74,5 @@ def api_all():
 def api_config():
     return jsonify(evalart_customer_config)
 
-app.run()
+# app.run()
 
