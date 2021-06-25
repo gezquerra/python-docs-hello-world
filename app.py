@@ -28,28 +28,6 @@ evalart_customer_config = [{
   "config": {
     "fields": [
       {
-        "id": "type",
-        "label": "Test",
-        "placeholder": "Select test",
-        "type": "select",
-        "optgroups": [
-          {
-            "label": "Logical tests",
-            "options": [
-              { "id": 1, "label": "Algorithm test" },
-              { "id": 2, "label": "Data structure test" }
-            ]
-          },
-          {
-            "label": "Programming tests",
-            "options": [
-              { "id": 3, "label": "Javascript test" },
-              { "id": 4, "label": "Ruby test" }
-            ]
-          }
-        ]
-      },
-      {
         "id": "persona",
         "label": "Persona",
         "placeholder": "Select persona",
@@ -58,7 +36,7 @@ evalart_customer_config = [{
           { "id": 1, "label": "Senior developer" },
           { "id": 2, "label": "Junior developer" }
         ]
-      },
+      }
     ]
   }
 }]
