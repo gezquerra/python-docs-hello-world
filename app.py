@@ -24,7 +24,7 @@ books = [
      'published': '1975'}
 ]
 
-evalart_customer_config = [{
+evalart_customer_config = {
   "config": {
     "fields": [
       {
@@ -39,7 +39,7 @@ evalart_customer_config = [{
       }
     ]
   }
-}]
+}
 
 def parse_request(req):
     """
