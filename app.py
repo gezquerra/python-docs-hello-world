@@ -22,6 +22,45 @@ books = [
      'published': '1975'}
 ]
 
+evalart_customer_config = [{
+  "config": {
+    "fields": [
+      {
+        "id": "type",
+        "label": "Test",
+        "placeholder": "Select test",
+        "type": "select",
+        "optgroups": [
+          {
+            "label": "Logical tests",
+            "options": [
+              { "id": 1, "label": "Algorithm test" },
+              { "id": 2, "label": "Data structure test" },
+            ]
+          },
+          {
+            "label": "Programming tests",
+            "options": [
+              { "id": 3, "label": "Javascript test" },
+              { "id": 4, "label": "Ruby test" },
+            ]
+          }
+        ]
+      },
+      {
+        "id": "persona",
+        "label": "Persona",
+        "placeholder": "Select persona",
+        "type": "select",
+        "options": [
+          { "id": 1, "label": "Senior developer" },
+          { "id": 2, "label": "Junior developer" },
+        ]
+      },
+    ]
+  }
+}]
+
 @app.route("/")
 def hello():
     return "Hello, Azure!"
@@ -30,6 +69,11 @@ def hello():
 @app.route('/api/v1/resources/books/all', methods=['GET'])
 def api_all():
     return jsonify(books)
+
+# A route to return config
+@app.route('/config', methods=['GET'])
+def api_config():
+    return jsonify(evalart_customer_config)
 
 app.run()
 
