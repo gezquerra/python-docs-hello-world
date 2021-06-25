@@ -37,14 +37,14 @@ evalart_customer_config = [{
             "label": "Logical tests",
             "options": [
               { "id": 1, "label": "Algorithm test" },
-              { "id": 2, "label": "Data structure test" },
+              { "id": 2, "label": "Data structure test" }
             ]
           },
           {
             "label": "Programming tests",
             "options": [
               { "id": 3, "label": "Javascript test" },
-              { "id": 4, "label": "Ruby test" },
+              { "id": 4, "label": "Ruby test" }
             ]
           }
         ]
@@ -56,7 +56,7 @@ evalart_customer_config = [{
         "type": "select",
         "options": [
           { "id": 1, "label": "Senior developer" },
-          { "id": 2, "label": "Junior developer" },
+          { "id": 2, "label": "Junior developer" }
         ]
       },
     ]
