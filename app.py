@@ -37,15 +37,14 @@ def api_config():
 @app.route('/webhook', methods=['PUT','POST'])
 def api_webhook():
     import requests
-    
+
     payload = request.get_data()
     print (payload)
 
-    #url = 'https://smart.requestcatcher.com/test'
-#
-    #headers = {"Content-Type": "application/json"}
-    #x = requests.post(url, data = payload,headers = headers)
-    #print (x)
+    url = 'https://smart.requestcatcher.com/test'
+    headers = {"Content-Type": "application/json"}
+    x = requests.post(url, data = payload,headers = headers)
+    print (x)
     return ("", 200, None)
 
 
