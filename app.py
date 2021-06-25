@@ -1,4 +1,7 @@
 from flask import Flask, request, jsonify
+from urllib.parse import unquote_plus
+import json
+import re
 
 app = Flask(__name__)
 
@@ -60,6 +63,17 @@ evalart_customer_config = [{
   }
 }]
 
+def parse_request(req):
+    """
+    Parses application/json request body data into a Python dictionary
+    """
+    payload = req.get_data()
+    #payload = unquote_plus(payload)
+    #payload = re.sub('payload=', '', payload)
+    payload = json.loads(payload)
+
+    return payload
+
 @app.route("/")
 def hello():
     return "Hello, Azure!"
@@ -74,5 +88,13 @@ def api_all():
 def api_config():
     return jsonify(evalart_customer_config)
 
-# app.run()
+# A route to return config
+@app.route('/webhook', methods=['PUT','POST'])
+def api_webhook():
+    payload = parse_request(request)
+    print (payload)
+    return ("", 200, None)
+
+
+#app.run()
 
