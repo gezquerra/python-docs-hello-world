@@ -10,14 +10,20 @@ evalart_customer_config = {
   "config": {
     "fields": [
       {
-        "id": "persona",
-        "label": "Persona",
-        "placeholder": "Select persona",
+        "placeholder": "Selecciona un proceso de Evalart",
         "type": "select",
         "options": [
-          { "id": 1, "label": "Senior developer" },
-          { "id": 2, "label": "Junior developer" }
-        ]
+          {
+            "id": "22438",
+            "label": "Proceso de prueba THT"
+          },
+          {
+            "id": "22447",
+            "label": "Prueba DISC y Big 5"
+          }
+        ],
+        "id": "process",
+        "label": "Proceso"
       }
     ]
   }
